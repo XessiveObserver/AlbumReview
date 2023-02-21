@@ -1,0 +1,25 @@
+<div class="mx-auto col-sm-5 pt-3 p-3 shadow-lg m-3">
+<h1 class="text-center pb-3 shadow-none bg-light">Album: <%= @album.name %></h1>
+<p class="shadow-none fw-bold bg-light rounded p-3">Artist: <%= @album.artist %></p>
+
+<% if @album.album_cover_art.attached? %>
+<p>
+<%= image_tag @album.album_cover_art, class: "img-fluid img-thumbnail rounded mx-auto d-block" %>
+</p>
+<% end %>
+<span class="fw-bold">Review</span><br/>
+<p class="shadow-none bg-light rounded p-3"><%= @album.review %></p>
+<p class="shadow-none fw-semibold bg-light rounded p-3">Genre: <%= @album.genre %></p>
+
+<div class="text-center">
+    <%= link_to "Back To Album List", albums_path, class: "btn btn-secondary m-2" %>
+  
+    <%= link_to "Edit", edit_album_path(@album), class: "btn btn-success"  %>
+    <%= link_to "Delete Album", album_path(@album), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, class: "btn btn-danger"  %>
+  </div>
+
+
+</div>

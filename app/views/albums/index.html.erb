@@ -1,0 +1,16 @@
+<div class="container mx-auto col-sm-6 p-3 pt-3 bg-light m-3">
+  <h1 class="text-center text-dark shadow-lg p-5 rounded">Revue</h1>
+  <hr class="font-weight-bold text-secondary" />
+
+ 
+    <% @albums.each do |album| %>      
+        <p class="py-1 shadow-lg py-2 rounded text-center">
+          <%= link_to album.name, album, class: "fw-semibold text-dark" %>
+        </p>      
+    <% end %>
+ 
+    <div class="text-center">      
+        <%= link_to "New Album", new_album_path, class: "btn btn-secondary" %>      
+    </div>
+</div>
+

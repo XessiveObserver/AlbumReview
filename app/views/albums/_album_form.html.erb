@@ -1,0 +1,42 @@
+<div class="mx-auto col-sm-4 pt-3 p-3 shadow-lg rounded m-3 bg-light">
+  <%= bootstrap_form_for(@album) do |form| %>
+    <div>
+      <%= form.text_field :name %>
+      <% @album.errors.full_messages_for(:name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= form.text_field :artist %>
+      <% @album.errors.full_messages_for(:artist).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.file_field :album_cover_art %>
+      <% @album.errors.full_messages_for(:album_cover_art).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.text_area :review, rows: 8 %><br>
+      <% @album.errors.full_messages_for(:review).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.text_field :genre %>
+      <% @album.errors.full_messages_for(:genre).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+      <%= link_to "Back To Album List", albums_path, class: "btn btn-primary m-2" %>
+    </div>
+  <% end %>
+</div>
