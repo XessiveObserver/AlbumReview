@@ -48,6 +48,9 @@ gem "bootsnap", require: false
 # Bootstrap forms
 gem "bootstrap_form", "~> 5.1"
 
+# Jquery
+gem 'jquery-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 # Responders
