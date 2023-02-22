@@ -8,14 +8,14 @@ class AlbumsController < ApplicationController
   end
   
   def new
-    @album = Album.new
+    @album = current_user.albums.build
   end
 
   def create
-    @album = Album.new(album_params)
+    @album = current_user.albums.build(album_params)
 
     if @album.save
-      redirect_to @album
+      redirect_to @album, notice: "Album was successfully created!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
 
     if @album.update(album_params)
-      redirect_to @album
+      redirect_to @album, notice: "Album was successfully updated!"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +39,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @album.destroy
 
-    redirect_to albums_path, status: :see_other
+    redirect_to albums_path, status: :see_other, notice: "Album was successfully deleted!"
   end
 
   private

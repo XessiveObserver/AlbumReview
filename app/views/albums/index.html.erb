@@ -3,14 +3,18 @@
   <hr class="font-weight-bold text-secondary" />
 
  
-    <% @albums.each do |album| %>      
+    <% @albums.each do |album| %>
+      <% if album.user == current_user || !current_user %>      
         <p class="py-1 shadow-lg py-2 rounded text-center">
           <%= link_to album.name, album, class: "fw-semibold text-dark" %>
-        </p>      
+        </p>
+      <% end %>      
     <% end %>
  
-    <div class="text-center">      
-        <%= link_to "New Album", new_album_path, class: "btn btn-secondary" %>      
+    <div class="text-center">
+    <% if current_user %>      
+        <%= link_to "New Album", new_album_path, class: "btn btn-secondary" %>
+    <% end %>      
     </div>
 </div>
 

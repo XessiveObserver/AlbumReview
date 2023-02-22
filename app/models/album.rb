@@ -4,4 +4,5 @@ class Album < ApplicationRecord
     validates :review, presence: true, length: {minimum: 10}
     validates :genre, presence: true
     has_one_attached :album_cover_art
+    belongs_to :user
 end
