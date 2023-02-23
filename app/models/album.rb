@@ -5,4 +5,5 @@ class Album < ApplicationRecord
     validates :genre, presence: true
     has_one_attached :album_cover_art
     belongs_to :user
+    has_many :comments
 end

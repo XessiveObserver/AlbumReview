@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "home#index"
-  
-  resources :albums
 
   get 'home/index'
+  
+  resources :albums do
+    resources :comments
+  end
+  
+  root "home#index"
 end

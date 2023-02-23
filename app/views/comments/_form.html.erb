@@ -1,0 +1,13 @@
+<%= bootstrap_form_with model: [ @album, @album.comments.build ] do |form| %>
+  <p>
+   
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    
+    <%= form.text_area :comment %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
