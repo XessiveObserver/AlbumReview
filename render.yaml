@@ -1,5 +1,5 @@
 databases:
-  - name: Album
+  - name: postgres
     databaseName: Album
     user: album_6fef_user
 
