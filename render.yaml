@@ -1,6 +1,6 @@
 databases:
-  - name: postgres
-    databaseName: Album
+  - name: album_6fef
+    databaseName: album_6fef
     user: album_6fef_user
 
 services:
@@ -12,7 +12,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: Album
+          name: album_6fef
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
